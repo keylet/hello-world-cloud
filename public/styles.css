@@ -1,0 +1,38 @@
+/* Establecer un fondo de gradiente con animación */
+body {
+    background: linear-gradient(45deg, #4e54c8, #8f94fb);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animación para el fondo */
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Centrando el texto */
+.content {
+    text-align: center;
+    color: #fff;
+    font-size: 3rem;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+/* Agregar animación al texto */
+h1 {
+    animation: glowText 1.5s ease-in-out infinite alternate;
+}
+
+/* Efecto de resplandor para el texto */
+@keyframes glowText {
+    0% { text-shadow: 0 0 5px rgba(0, 255, 255, 0.6), 0 0 10px rgba(0, 255, 255, 0.6); }
+    100% { text-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1); }
+}
