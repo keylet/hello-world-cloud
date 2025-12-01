@@ -1,22 +1,24 @@
-# Use the official Node.js image as a base
+# Use la imagen oficial de Node.js como base
 FROM node:20-alpine
 
-# Create and define the working directory inside the container
+# Crea y define el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copy the package.json and package-lock.json (if available) into the container
-COPY package.json ./
-# If you have a package-lock.json, you would also copy it with the following command:
+# Copia los archivos package.json y package-lock.json (si está disponible) al contenedor
+COPY package.json ./ 
+# Si tienes un package-lock.json, también lo copiarías con el siguiente comando:
 # COPY package-lock.json ./
 
-# Install the Node.js dependencies inside the container
+# Instala las dependencias de Node.js dentro del contenedor
 RUN npm install
 
-# Copy the rest of the project files (including HTML and CSS) into the container
+# Copia el resto de los archivos del proyecto (incluyendo HTML y CSS) al contenedor
 COPY . .
 
-# Expose the port on which the app will be running inside the container
-EXPOSE 8080
+# Modificar la aplicación para que escuche en el puerto 80 (asegúrate de que en index.js está configurado a escuchar en el puerto 80)
 
-# Command to run the app when the container starts
+# Expone el puerto 80 para que sea accesible desde fuera del contenedor
+EXPOSE 80
+
+# Comando para iniciar la aplicación cuando el contenedor arranca
 CMD ["npm", "start"]
